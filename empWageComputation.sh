@@ -54,3 +54,28 @@ do
 	monthSalary=$(($monthSalary + $empHours * $empRatePerHour))
 done
 echo "TOtal month's salary:" $monthSalary
+echo "completed fifth use case"
+
+
+
+
+hoursCrossed=0
+daysCrossed=0
+salary=0
+days=0
+totaHrs=101
+totalDays=21
+while [[ $hoursCrossed -lt $totaHrs && $days -ne $totalDays ]];
+do
+   attendance=$((RANDOM % 2))
+   if [ $attendance  == 1 ];
+   then
+         empHours=8;
+         let "hoursCrossed+=8";
+         let "days+=1";
+   else
+         empHours=0
+   fi
+   salary=$(($salary + $empHours * $empRatePerHour))
+done
+echo "Salary till a condition is reached:" $salary

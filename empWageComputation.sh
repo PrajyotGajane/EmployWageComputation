@@ -72,10 +72,28 @@ do
    then
          empHours=8;
          let "hoursCrossed+=8";
-         let "days+=1";
    else
          empHours=0
    fi
+	let "days+=1";
    salary=$(($salary + $empHours * $empRatePerHour))
 done
 echo "Salary till a condition is reached:" $salary
+
+totalHours=0
+daysWorked=0
+function getWorkHours(){
+	while [[ $daysWorked -lt $totalDays ]];
+	do
+		attendance=$((RANDOM % 2))
+		if [ $attendance == 1 ];
+		then
+			let "totalHours+=8";
+		else
+			empHours=0
+		fi
+	let "daysWorked+=1";
+	done
+}
+getWorkHours
+echo "Total Hours Worked :" $totalHours

@@ -36,3 +36,21 @@ esac
 
 salary=$(($empHours * $empRatePerHour))
 echo "Salary :" $salary
+echo "completed 3th and 4th use case"
+
+
+totalWorkingDays=20
+monthSalary=0
+for (( i=0; i<=$totalWorkingDays; i++ ));
+
+do
+	attendance=$((RANDOM % 2))
+	if [ $attendance == 1 ]
+	then
+			empHours=8
+	else
+			empHours=0
+	fi
+	monthSalary=$(($monthSalary + $empHours * $empRatePerHour))
+done
+echo "TOtal month's salary:" $monthSalary

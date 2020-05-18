@@ -97,3 +97,26 @@ function getWorkHours(){
 }
 getWorkHours
 echo "Total Hours Worked :" $totalHours
+echo "completed use case 7"
+
+
+
+declare -A dailyWage
+for (( i=0; i<$totalDays; i++))
+do
+   attendance=$(( RANDOM % 2 ))
+   if [ $attendance == 1 ];
+   then
+      dailyWage[$i]=160
+   else
+      dailyWage[$i]=0
+   fi
+done
+echo "Daily wage for day's attended :"${dailyWage[@]}
+salary=0
+for (( i=0; i<$totalDays; i++));
+do
+   salary=$(( $salary + ${dailyWage[$i]}))
+done
+echo "Total salary: " $salary
+echo "completed use case 8"
